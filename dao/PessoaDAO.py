@@ -25,3 +25,15 @@ class PessoaDAO:
       return pessoas
     except Exception as e:
       return e
+
+      def save(self, pessoa):
+        sql="INSERT INTO pessoa (nome) VALUES (%s)"
+
+        try:
+          self.cursor.execute(sql,pessoa.nome)
+          self.conexao.commit()
+          pessoa.id = self.cursor.lastrowid
+          return pessoa
+        except Exception as e:
+          return e
+

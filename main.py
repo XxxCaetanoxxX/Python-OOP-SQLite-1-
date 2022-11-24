@@ -22,3 +22,7 @@ pessoaDAO = PessoaDAO(db.conexao, db.cursor)
 pessoas = pessoaDAO.getAll(orderBy=True)
 for pessoa in pessoas:
   print(pessoa)
+
+novo = Pessoa(0, "Denzel Washington")
+
+novo= pessoaDAO.save(novo)
